@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile Dashboard - StudyRevise</title>
+    <link rel="stylesheet" href="user-profile-dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <span class="logo-icon">📖</span>
+          <span class="logo-text">StudyRevise</span>
+        </div>
+      </div>
+
+      <div class="sidebar-menu">
+        <a href="#" class="menu-item">
+          <span class="menu-icon">📖</span>
+          <span class="menu-text">Subject</span>
+        </a>
+        <a href="#" class="menu-item">
+          <span class="menu-icon">✨</span>
+          <span class="menu-text">Generate</span>
+        </a>
+        <a href="#" class="menu-item">
+          <span class="menu-icon">📅</span>
+          <span class="menu-text">Timetable</span>
+        </a>
+        <a href="#" class="menu-item">
+          <span class="menu-icon">📊</span>
+          <span class="menu-text">Progress</span>
+        </a>
+        <a href="#" class="menu-item">
+          <span class="menu-icon">🤖</span>
+          <span class="menu-text">AI Advisor</span>
+        </a>
+      </div>
+
+      <div class="sidebar-footer">
+        <a href="#" class="user-profile-item active">
+          <div class="user-avatar">👤</div>
+          <div class="user-info">
+            <div class="user-name">Alex Smith</div>
+            <div class="user-email">alex@email.com</div>
+          </div>
+        </a>
+        <a href="#" class="menu-item logout-item">
+          <span class="menu-icon"><i class="fa fa-sign-out"></i></span>
+          <span class="menu-text">Log Out</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <div class="wrap">
+      <!-- User Identity Section -->
+      <section class="identity-section" id="identitySection">
+        <div class="identity-content">
+          <div class="avatar-container">
+            <img
+              src="https://ui-avatars.com/api/?name=Alex+Smith&background=3b82f6&color=fff&size=256"
+              alt="Alex Smith"
+              class="user-avatar-large"
+              id="userAvatarLarge"
+            />
+          </div>
+          <div class="identity-info">
+            <h1 class="greeting" id="greeting">Hi, Alex Smith 👋</h1>
+            <span class="level-badge" id="levelBadge">Intermediate</span>
+          </div>
+          <button
+            class="btn btn-icon edit-profile-btn"
+            id="editProfileBtn"
+            title="Edit Profile"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+              ></path>
+              <path
+                d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Preferences and Goals Section -->
+      <section class="middle-section">
+        <div class="grid grid-2">
+          <!-- Study Preferences Card -->
+          <div class="card card-lg" id="preferencesCard">
+            <div class="card-header">
+              <h2 class="card-title">Study Preferences</h2>
+              <button
+                class="btn btn-icon"
+                id="editPreferencesBtn"
+                title="Edit Preferences"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                  ></path>
+                  <path
+                    d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div class="preferences-list" id="preferencesList">
+              <div class="preference-item">
+                <div class="preference-content">
+                  <span class="preference-label">Preferred Study Time</span>
+                  <span class="preference-value" id="studyTime">Evening</span>
+                </div>
+              </div>
+              <div class="preference-item">
+                <div class="preference-content">
+                  <span class="preference-label">Session Type</span>
+                  <span class="preference-value" id="sessionType"
+                    >50 min study + 10 min break</span
+                  >
+                </div>
+              </div>
+              <div class="preference-item">
+                <div class="preference-content">
+                  <span class="preference-label">Daily Maximum</span>
+                  <span class="preference-value" id="dailyMax">5 hours</span>
+                </div>
+              </div>
+              <div class="preference-item">
+                <div class="preference-content">
+                  <span class="preference-label">Sleep Hours</span>
+                  <span class="preference-value" id="sleepHours">8 hours</span>
+                </div>
+              </div>
+              <div class="preference-item">
+                <div class="preference-content">
+                  <span class="preference-label">Learning Style</span>
+                  <span class="preference-value" id="learningStyle">Mixed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Study Goals Card -->
+          <div class="card card-lg" id="goalsCard">
+            <div class="card-header">
+              <h2 class="card-title">Study Goals</h2>
+              <button class="btn btn-icon" id="editGoalsBtn" title="Edit Goals">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+                  ></path>
+                  <path
+                    d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div class="goals-list" id="goalsList">
+              <div class="goal-item">
+                <div class="goal-content">
+                  <span class="goal-label">Weekly Hours Goal</span>
+                  <span class="goal-value" id="weeklyHours">20 hours</span>
+                </div>
+              </div>
+              <div class="goal-item">
+                <div class="goal-content">
+                  <span class="goal-label">Daily Goal</span>
+                  <span class="goal-value" id="dailyGoal"
+                    >Complete 2 study sessions</span
+                  >
+                </div>
+              </div>
+              <div class="goal-item">
+                <div class="goal-content">
+                  <span class="goal-label">Subject Goals</span>
+                  <div class="subject-goals" id="subjectGoals">
+                    <div class="subject-goal">
+                      Mathematics: Master calculus fundamentals
+                    </div>
+                    <div class="subject-goal">
+                      Computer Science: Complete data structures course
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="goal-item">
+                <div class="goal-content">
+                  <span class="goal-label">Learning Target</span>
+                  <span class="goal-value" id="learningTarget"
+                    >Prepare for final exams in May</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Stats Section -->
+      <section class="stats-section">
+        <h2 class="section-title">Quick Stats</h2>
+        <div class="grid grid-4" id="statsGrid">
+          <div class="stat-card">
+            <div
+              class="stat-icon"
+              style="background: linear-gradient(135deg, #5b5cf6, #8b5cf6)"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value" id="totalHours">42.5</div>
+              <div class="stat-label">Total Study Hours</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div
+              class="stat-icon"
+              style="background: linear-gradient(135deg, #10b981, #06b6d4)"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2"
+              >
+                <polygon
+                  points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+                ></polygon>
+              </svg>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value" id="currentStreak">7</div>
+              <div class="stat-label">Current Streak (days)</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div
+              class="stat-icon"
+              style="background: linear-gradient(135deg, #f59e0b, #ef4444)"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2"
+              >
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path
+                  d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                ></path>
+              </svg>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value" id="subjectCount">5</div>
+              <div class="stat-label">Subjects</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div
+              class="stat-icon"
+              style="background: linear-gradient(135deg, #6366f1, #818cf8)"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2"
+              >
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value" id="completedSessions">85</div>
+              <div class="stat-label">Completed Sessions</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal-backdrop" id="modalBackdrop">
+      <div class="modal" id="editModal">
+        <div class="modal-header">
+          <h2 class="modal-title" id="modalTitle">Edit Profile</h2>
+          <button class="btn btn-icon" id="closeModalBtn">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body" id="modalBody">
+          <!-- Modal content will be dynamically inserted -->
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="cancelBtn">Cancel</button>
+          <button class="btn btn-primary" id="saveBtn">Save Changes</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <button
+      class="dark-mode-toggle"
+      id="darkModeToggle"
+      title="Toggle Dark Mode"
+    >
+      <span class="toggle-icon">🌙</span>
+    </button>
+
+    <script src="navigation.js"></script>
+    <script src="logout.js"></script>
+    <script src="user-profile-dashboard.js"></script>
+  </body>
+</html>
