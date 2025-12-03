@@ -1,0 +1,260 @@
+:root {
+  --bg: #f0f5fa;
+  --text: #0a0a0a;
+  --primary: #0a1f44;
+  --blue: #4dabf7;
+  --hero-bg: #e6f0ff;
+
+  --bg-dark: #0A192F;
+  --text-dark: #ffffff;
+  --primary-dark: #112240;
+  --input-dark: #0c1a33;
+  --mint: #64FFDA;
+  --glass: rgba(255,255,255,0.08);
+}
+
+/* ================== GLOBAL ================== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.35s;
+}
+
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+/* ================== SIDEBAR ================== */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 70px;
+  background: var(--primary);
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease, background 0.3s ease;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+body.dark .sidebar { background: var(--primary-dark); }
+
+.sidebar.expanded { width: 240px; }
+
+.sidebar-header {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon { font-size: 18px; color: var(--blue); }
+body.dark .logo-icon { color: var(--mint); }
+
+.logo-text { font-size: 16px; font-weight: 700; color: var(--blue); text-decoration:none; opacity:0; transition:opacity 0.3s;}
+body.dark .logo-text { color: var(--mint); }
+
+.sidebar.expanded .logo-text { opacity:1; }
+
+.toggle-mode {
+  margin-top: 12px;
+  font-size: 22px;
+  cursor: pointer;
+  color: white;
+  transition:0.3s;
+}
+.toggle-mode:hover { transform: scale(1.1); color: var(--blue); }
+
+/* ================== MENU ================== */
+.sidebar-menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 20px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+body.dark .menu-item { color: var(--mint); }
+
+.menu-item:hover { background: rgba(77,171,247,0.2); }
+.menu-item.active { background: rgba(77,171,247,0.3); border-left:3px solid var(--blue); }
+body.dark .menu-item.active { background: rgba(100,255,218,0.15); border-left:3px solid var(--mint); }
+
+.menu-icon { width: 24px; text-align: center; }
+.menu-text { font-size: 13px; font-weight: 500; opacity:0; transition: opacity 0.3s ease; }
+.sidebar.expanded .menu-text { opacity:1; }
+
+/* ================== MAIN CONTENT ================== */
+.wrap {
+  margin-left: 70px;
+  padding: 24px;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar.expanded ~ .wrap { margin-left: 240px; }
+
+.header { display:flex; justify-content: space-between; align-items:center; margin-bottom:30px; }
+.header h2 { font-size:28px; color: var(--primary); }
+body.dark .header h2 { color: var(--mint); }
+
+/* ================== PROFILE FORM ================== */
+.main-flex {
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.profile-left {
+  flex-shrink:0;
+  text-align:center;
+  position: relative;
+}
+
+#avatarPreview {
+  width:300px;
+  height:220px;
+  border-radius:8px;
+  object-fit:cover;
+  background:#e6f0ff;
+  border:2px solid var(--blue);
+  transition:0.3s ease;
+}
+
+body.dark #avatarPreview { 
+  background: var(--input-dark); 
+  border:2px solid var(--mint);
+}
+
+#avatarPreview:hover { transform: scale(1.03); box-shadow:0 6px 20px rgba(77,171,247,0.3); }
+
+/* ================== BUTTONS UNDER PICTURE ================== */
+.avatar-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 12px;
+}
+
+.avatar-buttons button {
+  padding:10px 16px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:500;
+  background: var(--blue);
+  color:white;
+  transition:0.3s;
+}
+
+.avatar-buttons button:hover {
+  background: var(--primary);
+  color: var(--blue);
+}
+
+body.dark .avatar-buttons button {
+  background: var(--mint);
+  color: var(--bg-dark);
+}
+body.dark .avatar-buttons button:hover {
+  background: var(--primary);
+  color: var(--mint);
+}
+
+/* ================== PROFILE FORM ================== */
+.profile-form {
+  flex:1;
+  padding:25px;
+  border-radius:16px;
+  background: #e6f0ff;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  position: relative;
+  transition: 0.3s ease;
+}
+
+body.dark .profile-form {
+  background: var(--primary-dark);
+  box-shadow: 0 6px 25px rgba(0,255,218,0.15);
+}
+
+.input-group { margin-bottom:18px; }
+
+label { display:block; margin-bottom:6px; font-size:15px; font-weight:500; color: var(--primary); }
+body.dark label { color: var(--mint); }
+
+input, select {
+  width:100%;
+  padding:12px;
+  border-radius:8px;
+  border:2px solid transparent;
+  outline:none;
+  font-size:15px;
+  background:white;
+  color: var(--text);
+  transition:0.3s ease;
+}
+
+body.dark input, body.dark select {
+  background: var(--input-dark);
+  color: var(--text-dark);
+  border-color: rgba(255,255,255,0.1);
+}
+
+input::placeholder { color:#999; }
+body.dark input::placeholder { color: rgba(255,255,255,0.5); }
+
+input:hover, input:focus, select:hover, select:focus { border-color: var(--blue); }
+body.dark input:hover, body.dark input:focus, body.dark select:hover, body.dark select:focus { border-color: var(--mint); }
+
+#customSessionBox { display:none; margin-top:10px; }
+#customSessionBox input { margin-bottom:10px; }
+
+.btn-save {
+  width:100%;
+  padding:12px 0;
+  border-radius:8px;
+  font-size:16px;
+  font-weight:500;
+  background: var(--blue);
+  border:none;
+  color: white;
+  cursor:pointer;
+  transition:0.3s ease;
+  margin-top:15px;
+}
+
+.btn-save:hover { background: var(--primary); color:white; }
+body.dark .btn-save { background: var(--mint); color: var(--bg-dark); }
+body.dark .btn-save:hover { background: var(--blue); color:white; }
+
+/* ================== RESPONSIVE ================== */
+@media(max-width:900px){
+  .main-flex {flex-direction:column; align-items:center;}
+  #avatarPreview {width:240px; height:180px;}
+  .profile-form {width:100%;}
+}

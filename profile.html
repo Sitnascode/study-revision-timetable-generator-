@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Profile Setup – Revision Mentor</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="style1.css"/>
+</head>
+<body>
+
+<!-- ================== SIDEBAR ================== -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">
+      <span class="logo-icon">🏠</span>
+      <a href="index.html" class="logo-text">Home</a>
+    </div>
+    <span class="toggle-mode" id="modeToggle">🌙</span>
+  </div>
+
+  <div class="sidebar-menu">
+    <a href="#" class="menu-item active">
+      <span class="menu-icon">⚙️</span>
+      <span class="menu-text">Profile Setup</span>
+    </a>
+    <a href="#" class="menu-item">
+      <span class="menu-icon">📖</span>
+      <span class="menu-text">Subject</span>
+    </a>
+    <a href="#" class="menu-item">
+      <span class="menu-icon">✨</span>
+      <span class="menu-text">Generate</span>
+    </a>
+    <a href="#" class="menu-item">
+      <span class="menu-icon">📅</span>
+      <span class="menu-text">Timetable</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ================== MAIN CONTENT ================== -->
+<div class="wrap">
+  <div class="header">
+    <h2>Profile Setup Page</h2>
+  </div>
+
+  <div class="main-flex">
+    <div class="profile-left">
+      <img id="avatarPreview" alt="Profile Picture"/>
+      <input type="file" id="avatarInput" accept="image/*" style="display:none;"/>
+      <div class="avatar-buttons">
+        <button id="setPictureBtn">Set Picture</button>
+        <button id="btnDelete">Delete Picture</button>
+      </div>
+    </div>
+
+    <div class="profile-form">
+      <div class="input-group">
+        <label>Username</label>
+        <input type="text" id="username" placeholder="Enter username"/>
+      </div>
+
+      <div class="input-group">
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="Enter full name"/>
+      </div>
+
+      <div class="input-group">
+        <label>Grade/Level</label>
+        <select id="grade" required>
+          <option value="" disabled selected hidden>Select grade</option>
+          <option>Grade 12</option>
+          <option>University</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>Preferred Study Time</label>
+        <select id="focus" required>
+          <option value="" disabled selected hidden>Select time</option>
+          <option>Morning</option>
+          <option>Afternoon</option>
+          <option>Evening</option>
+          <option>Night</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>Session Length</label>
+        <select id="session" required>
+          <option value="" disabled selected hidden>Select session</option>
+          <option>25/5</option>
+          <option>50/10</option>
+          <option>90/15</option>
+          <option>Custom</option>
+        </select>
+      </div>
+
+      <div class="input-group" id="customSessionBox">
+        <label>Custom Session</label>
+        <input type="number" id="study" placeholder="Study minutes"/>
+        <input type="number" id="break" placeholder="Break minutes"/>
+      </div>
+
+      <div class="input-group">
+        <label>Daily Maximum Study Hours</label>
+        <input type="number" id="maxHours" placeholder="Example: 5"/>
+      </div>
+
+      <div class="input-group">
+        <label>Sleep Hours</label>
+        <input type="number" id="sleep" placeholder="Example: 7"/>
+      </div>
+
+      <div class="input-group">
+        <label>Learning Style</label>
+        <select id="style" required>
+          <option value="" disabled selected hidden>Select style</option>
+          <option>Theory / Reading</option>
+          <option>Practice / Exercises</option>
+          <option>Mixed / Balanced</option>
+        </select>
+      </div>
+
+      <button class="btn-save" onclick="saveProfile()">Save & Continue</button>
+    </div>
+  </div>
+</div>
+
+<script src="script1.js"></script>
+</body>
+</html>
+
+
+
+
+
