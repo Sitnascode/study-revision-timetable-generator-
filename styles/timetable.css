@@ -1,0 +1,359 @@
+/* ===========================
+   🎨 DESIGN TOKENS (Light)
+=========================== */
+:root {
+  --bg: #f8fafc;
+  --bg-elev: #fff;
+  --card: #fff;
+
+  --accent: #0ea5e9;
+  --accent-dark: #0284c7;
+  --accent-soft: rgba(14,165,233,0.1);
+
+  --muted: #64748b;
+  --text: #0f172a;
+  --border-subtle: rgba(148,163,184,0.2);
+
+  --danger: #ef4444;
+  --success: #10b981;
+
+  --shadow: 0 6px 24px rgba(2,6,23,0.08);
+}
+
+/* ===========================
+   🌙 DESIGN TOKENS (Dark)
+=========================== */
+body.dark-mode {
+  --bg: #071018;
+  --bg-elev: #0f1f1f;
+  --card: #0c1720;
+
+  --accent: #4ade80;
+  --accent-dark: #22c55e;
+  --accent-soft: rgba(74,222,128,0.08);
+
+  --muted: #94a3b8;
+  --text: #f1f5f9;
+  --border-subtle: rgba(74,222,128,0.14);
+
+  --shadow: 0 8px 30px rgba(0,0,0,0.35);
+}
+
+/* ===========================
+   🧼 GLOBAL RESET
+=========================== */
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Inter, "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===========================
+   🔝 NAVBAR
+=========================== */
+.navbar {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.logo {
+  margin: 0;
+  font-size: 16px;
+}
+
+.theme-toggle {
+  background: var(--accent);
+  color: var(--bg-elev);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 2200;
+}
+
+.theme-toggle:hover {
+  background: var(--accent-dark);
+}
+
+/* ===========================
+   📌 SIDEBAR
+=========================== */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 72px;
+  background: var(--bg-elev);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px 0;
+  transition: width .28s ease;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.sidebar.expanded {
+  width: 240px;
+}
+
+/* Sidebar header */
+.sidebar-header {
+  padding: 0 14px 8px;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity .18s;
+}
+
+.sidebar.expanded .logo-text {
+  opacity: 1;
+}
+
+/* Menu */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 8px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  margin: 0 8px;
+  border-radius: 10px;
+  text-decoration: none;
+
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border-subtle);
+
+  cursor: pointer;
+  transition: background .18s, border .18s;
+}
+
+.menu-item:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.menu-item.active {
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+}
+
+.menu-icon {
+  width: 28px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.menu-text {
+  opacity: 0;
+  transition: opacity .18s;
+}
+
+.sidebar.expanded .menu-text {
+  opacity: 1;
+}
+
+/* Sidebar footer */
+.sidebar-footer {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.user-profile-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--card);
+  border: 1px solid var(--border-subtle);
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, var(--accent), #7c3aed);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ===========================
+   📍 MAIN WRAPPER
+=========================== */
+.wrap {
+  margin-left: 72px;
+  padding: 24px;
+  transition: margin-left .28s ease;
+  min-height: calc(100vh - 48px);
+}
+
+.sidebar.expanded ~ .wrap {
+  margin-left: 240px;
+}
+
+/* ===========================
+   📝 FORMS + CARDS
+=========================== */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text);
+}
+
+/* ===========================
+   📊 TABLE
+=========================== */
+.table-wrap {
+  overflow: auto;
+}
+
+.subjects-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+}
+
+.subjects-table th {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.subjects-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* ===========================
+   🔐 MODAL
+=========================== */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2,6,23,0.45);
+  backdrop-filter: blur(2px);
+}
+
+.modal-panel {
+  position: relative;
+  background: var(--card);
+  border-radius: 12px;
+  padding: 18px;
+  min-width: 300px;
+  max-width: 420px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow);
+}
+
+/* ===========================
+   📱 RESPONSIVE
+=========================== */
+@media (max-width: 900px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    width: 60px;
+  }
+
+  .wrap {
+    margin-left: 60px;
+  }
+
+  .sidebar.expanded ~ .wrap {
+    margin-left: 240px;
+  }
+
+  .menu-text {
+    display: none;
+  }
+
+  .sidebar.expanded .menu-text {
+    display: block;
+  }
+
+  .modal-panel {
+    margin: 0 12px;
+    width: calc(100% - 24px);
+  }
+}

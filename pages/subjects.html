@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Subjects — StudyRevise</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="subjects.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <h2 class="logo">StudyRevise</h2>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        🌙
+      </button>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <nav
+      class="sidebar"
+      id="sidebar"
+      aria-label="Sidebar Navigation"
+      aria-hidden="false"
+    >
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <span class="logo-icon">📖</span>
+          <span class="logo-text">StudyRevise</span>
+        </div>
+      </div>
+      <div class="sidebar-menu">
+        <a href="subjects.html" class="menu-item active">
+          <span class="menu-icon">📚</span>
+          <span class="menu-text">Subjects</span>
+        </a>
+        <a href="generate.html" class="menu-item">
+          <span class="menu-icon">✨</span>
+          <span class="menu-text">Generate</span>
+        </a>
+        <a href="timetable.html" class="menu-item">
+          <span class="menu-icon">📅</span>
+          <span class="menu-text">Timetable</span>
+        </a>
+        <a href="progress.html">
+          <span class="menu-icon">📊</span>
+          <span class="menu-text">Progress</span>
+        </a>
+        <a href="#" class="menu-item">
+          <span class="menu-icon">🤖</span>
+          <span class="menu-text">AI Advisor</span>
+        </a>
+      </div>
+      <div class="sidebar-footer">
+        <div class="user-profile-item" role="button" tabindex="0">
+          <div class="user-avatar">👤</div>
+          <div class="user-info">
+            <div class="user-name">Alex Smith</div>
+            <div class="user-email">alex@email.com</div>
+          </div>
+        </div>
+        <a href="#" class="menu-item logout-item">
+          <span class="menu-icon"><i class="fa fa-sign-out"></i></span>
+          <span class="menu-text">Log Out</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- MAIN -->
+    <div class="wrap">
+      <main class="container">
+        <header class="page-head">
+          <h1>Your Subjects</h1>
+          <p class="desc">
+            Add subjects with difficulty and importance. Use the edit modal on
+            each row and drag to reorder.
+          </p>
+        </header>
+
+        <!-- Add subject form -->
+        <section class="card form-card" aria-labelledby="add-subject">
+          <h2 id="add-subject">Add Subject</h2>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="subjectName">Subject name</label>
+              <input
+                id="subjectName"
+                type="text"
+                placeholder="e.g., Data Structures"
+                autocomplete="off"
+              />
+            </div>
+            <div class="form-field">
+              <label for="difficulty">Difficulty (1–5)</label>
+              <select id="difficulty" aria-label="Difficulty">
+                <option value="">Select</option>
+                <option value="1">1 — Very easy</option>
+                <option value="2">2 — Easy</option>
+                <option value="3">3 — Medium</option>
+                <option value="4">4 — Hard</option>
+                <option value="5">5 — Very hard</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="importance">Importance (1–5)</label>
+              <select id="importance" aria-label="Importance">
+                <option value="">Select</option>
+                <option value="1">1 — Low</option>
+                <option value="2">2 — Low-Med</option>
+                <option value="3">3 — Medium</option>
+                <option value="4">4 — Med-High</option>
+                <option value="5">5 — High</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn" id="addSubjectBtn">Add Subject</button>
+            <div class="helper" id="formError" aria-live="polite"></div>
+          </div>
+        </section>
+
+        <!-- Table -->
+        <section class="card table-card" aria-labelledby="list-subjects">
+          <h2 id="list-subjects">Your Subjects</h2>
+          <div class="table-wrap">
+            <table
+              id="subjectsTable"
+              class="subjects-table"
+              aria-describedby="list-subjects"
+            >
+              <thead>
+                <tr>
+                  <th style="width: 36px"></th>
+                  <th>Subject</th>
+                  <th>Difficulty</th>
+                  <th>Importance</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="table-actions">
+            <button class="btn ghost" id="clearAllBtn">Clear All</button>
+            <button
+              class="btn primary"
+              id="continueBtn"
+              disabled
+              title="Add subjects to continue"
+            >
+              Continue →
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal" aria-hidden="true">
+      <div class="modal-backdrop" id="modalBackdrop"></div>
+      <div
+        class="modal-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <h3 id="modalTitle">Edit Subject</h3>
+        <div class="modal-body">
+          <label for="modalSubjectName">Subject name</label>
+          <input id="modalSubjectName" type="text" />
+          <label for="modalDifficulty">Difficulty (1–5)</label>
+          <select id="modalDifficulty">
+            <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <label for="modalImportance">Importance (1–5)</label>
+          <select id="modalImportance">
+            <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button class="btn ghost" id="modalCancel">Cancel</button>
+          <button class="btn primary" id="modalSave">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../scripts/subjects.js"></script>
+  </body>
+</html>
