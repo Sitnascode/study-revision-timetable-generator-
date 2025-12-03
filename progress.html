@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Study Progress & Analytics</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="progress.css" />
+  </head>
+  <body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <span class="logo-icon">📖</span>
+          <span class="logo-text">StudyRevise</span>
+        </div>
+      </div>
+
+      <div class="sidebar-menu">
+        <a href="#" class="menu-item">
+          <span class="menu-icon">📖</span>
+          <span class="menu-text">Subject</span>
+        </a>
+        <a href="#" class="menu-item">
+          <span class="menu-icon">✨</span>
+          <span class="menu-text">Generate</span>
+        </a>
+        <a href="#" class="menu-item">
+          <span class="menu-icon">📅</span>
+          <span class="menu-text">Timetable</span>
+        </a>
+        <a href="#" class="menu-item active">
+          <span class="menu-icon">📊</span>
+          <span class="menu-text">Progress</span>
+        </a>
+
+        <a href="#" class="menu-item">
+          <span class="menu-icon">🤖</span>
+          <span class="menu-text">AI Advisor</span>
+        </a>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-profile-item">
+          <div class="user-avatar">👤</div>
+          <div class="user-info">
+            <div class="user-name">Alex Smith</div>
+            <div class="user-email">alex@email.com</div>
+          </div>
+        </div>
+        <a href="#" class="menu-item logout-item">
+          <span class="menu-icon"><i class="fa fa-sign-out"></i></span>
+          <span class="menu-text">Log Out</span>
+        </a>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <header>
+        <div>
+          <h1>Study Progress & Analytics</h1>
+          <div class="muted">
+            Overview of hours studied, productivity, streaks and subject
+            insights
+          </div>
+        </div>
+        <div class="controls">
+          <a href="landing_profile_page_final/index.html" class="home-link">
+            <i class="fa fa-home"></i> Home
+          </a>
+          <button id="darkModeToggle" title="Toggle Dark Mode">🌙</button>
+          <label class="form-inline">
+            <select id="rangeSelect">
+              <option value="today">Today</option>
+              <option value="week" selected>Week</option>
+              <option value="month">Month</option>
+              <option value="custom">Custom</option>
+            </select>
+          </label>
+          <label id="customDates" style="display: none" class="form-inline">
+            <input type="date" id="startDate" />
+            <input type="date" id="endDate" />
+            <button id="applyRange" class="button">Apply</button>
+          </label>
+        </div>
+      </header>
+
+      <section class="card-row" id="summaryCards">
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <div class="card-content">
+            <div class="label">Total Hours Studied</div>
+            <div class="value" id="totalHours">0</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">⏱️</div>
+          <div class="card-content">
+            <div class="label">Planned Hours (total)</div>
+            <div class="value" id="plannedHours">0</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <div class="card-content">
+            <div class="label">Productivity Score</div>
+            <div class="value" id="productivity">0%</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔥</div>
+          <div class="card-content">
+            <div class="label">Current Streak (days)</div>
+            <div class="value" id="streak">0</div>
+          </div>
+        </div>
+      </section>
+
+      <main>
+        <div class="charts">
+          <div>
+            <div class="chart-card">
+              <h3 id="chartTitle" style="margin: 0 0 12px 0">
+                Weekly Overview
+              </h3>
+              <canvas id="barChart"></canvas>
+            </div>
+            <div class="chart-card" style="margin-top: 12px">
+              <h3 style="margin: 0 0 8px 0">Add study session</h3>
+              <form id="addSession" class="form-inline">
+                <input
+                  type="text"
+                  id="subjInput"
+                  placeholder="Subject"
+                  required
+                />
+                <input type="date" id="dateInput" required />
+                <input
+                  type="number"
+                  id="hoursInput"
+                  placeholder="Hours"
+                  step="1"
+                  min="1"
+                  max="24"
+                  required
+                />
+                <button type="submit" class="button">Add</button>
+              </form>
+            </div>
+          </div>
+
+          <div>
+            <div class="chart-card">
+              <h3 id="heatmapTitle" style="margin: 0 0 12px 0">
+                Study Heatmap Calendar
+              </h3>
+              <div id="heatmapCalendar"></div>
+            </div>
+            <div class="chart-card" style="margin-top: 12px">
+              <h3 style="margin: 0 0 12px 0">Subject Progress</h3>
+              <div id="progressBars"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-card">
+          <h3 style="margin: 0 0 10px 0">Subject Breakdown</h3>
+          <table id="subjectTable">
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>Planned Hours</th>
+                <th>Completed Hours</th>
+                <th>% Completion</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="insights-card">
+          <div class="insights" id="insights">
+            <strong>AI Insights</strong>
+            <ul id="insightsList"></ul>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="navigation.js"></script>
+    <script src="logout.js"></script>
+    <script src="progress.js"></script>
+  </body>
+</html>
