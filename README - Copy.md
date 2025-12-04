@@ -1,1 +1,0 @@
-# study-revision-timetable-generator-
