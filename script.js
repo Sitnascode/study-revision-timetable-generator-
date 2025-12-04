@@ -2,6 +2,10 @@
 const themeToggle = document.getElementById("themeToggle");
 const body = document.body;
 const icon = themeToggle.querySelector("i");
+// ================== THEME TOGGLE ==================
+const themeToggle = document.getElementById("themeToggle");
+const body = document.body;
+const icon = themeToggle.querySelector("i");
 
 // Load saved theme
 const savedTheme = localStorage.getItem("theme");

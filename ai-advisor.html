@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Advisor - StudyRevise</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="ai-advisor.css" />
+  </head>
+  <body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <span class="logo-icon">📖</span>
+          <span class="logo-text">StudyRevise</span>
+        </div>
+      </div>
+
+      <div class="sidebar-menu">
+        <a href="#" class="menu-item">
+          <span class="menu-icon">📖</span>
+          <span class="menu-text">Subject</span>
+        </a>
+        <a href="#" class="menu-item">
+          <span class="menu-icon">✨</span>
+          <span class="menu-text">Generate</span>
+        </a>
+        <a href="#" class="menu-item">
+          <span class="menu-icon">📅</span>
+          <span class="menu-text">Timetable</span>
+        </a>
+        <a href="#" class="menu-item">
+          <span class="menu-icon">📊</span>
+          <span class="menu-text">Progress</span>
+        </a>
+
+        <a href="#" class="menu-item active">
+          <span class="menu-icon">🤖</span>
+          <span class="menu-text">AI Advisor</span>
+        </a>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-profile-item">
+          <div class="user-avatar">👤</div>
+          <div class="user-info">
+            <div class="user-name">Alex Smith</div>
+            <div class="user-email">alex@email.com</div>
+          </div>
+        </div>
+        <a href="#" class="menu-item logout-item">
+          <span class="menu-icon"><i class="fa fa-sign-out"></i></span>
+          <span class="menu-text">Log Out</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="wrap">
+      <!-- Header -->
+      <header class="page-header">
+        <div class="header-content">
+          <h1 class="page-title">🤖 AI Advisor</h1>
+          <p class="page-subtitle">
+            Get personalized study advice and insights powered by AI
+          </p>
+        </div>
+        <div class="header-actions">
+          <a href="landing_profile_page_final/index.html" class="home-link">
+            <i class="fa fa-home"></i> Home
+          </a>
+          <button class="theme-toggle" id="themeToggle">
+            <span class="theme-icon">🌙</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Grid Layout -->
+      <div class="advisor-grid">
+        <!-- AI Chat Section -->
+        <section class="chat-section">
+          <div class="section-header">
+            <h2 class="section-title">Ask the AI Advisor</h2>
+            <span class="ai-status">
+              <span class="status-dot"></span>
+              AI Online
+            </span>
+          </div>
+
+          <div class="chat-window" id="chatWindow">
+            <div class="chat-message ai-message">
+              <div class="message-avatar">🤖</div>
+              <div class="message-content">
+                <p>
+                  Hello! I'm your AI study advisor. I'm here to help you
+                  optimize your learning, manage your time better, and achieve
+                  your academic goals. Ask me anything about studying, revision
+                  techniques, or time management!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-input-container">
+            <input
+              type="text"
+              class="chat-input"
+              id="chatInput"
+              placeholder="What should I study today?"
+            />
+            <button class="send-button" id="sendButton">
+              <span class="send-icon">➤</span>
+            </button>
+          </div>
+
+          <div class="quick-suggestions">
+            <button
+              class="suggestion-btn"
+              data-question="What should I study today?"
+            >
+              What should I study today?
+            </button>
+            <button
+              class="suggestion-btn"
+              data-question="How can I improve my revision efficiency?"
+            >
+              How can I improve my revision efficiency?
+            </button>
+            <button
+              class="suggestion-btn"
+              data-question="What's the best way to manage my time?"
+            >
+              What's the best way to manage my time?
+            </button>
+            <button
+              class="suggestion-btn"
+              data-question="How do I stay motivated while studying?"
+            >
+              How do I stay motivated?
+            </button>
+          </div>
+        </section>
+
+        <!-- Insights Panel -->
+        <aside class="insights-panel">
+          <!-- Personalized Insights -->
+          <div class="insights-card">
+            <h3 class="card-title">
+              <span class="title-icon">💡</span>
+              Personalized Insights
+            </h3>
+            <div class="insights-list">
+              <!-- AI-generated insights will be loaded here -->
+              <div class="insight-item">
+                <span class="insight-icon">⏳</span>
+                <p>Loading AI-generated insights...</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tips & Motivation -->
+          <div class="motivation-card">
+            <h3 class="card-title">
+              <span class="title-icon">✨</span>
+              Daily Motivation
+            </h3>
+            <div class="motivation-content">
+              <p class="motivation-quote">⏳ Loading...</p>
+              <p class="motivation-text">
+                AI is generating your daily motivation...
+              </p>
+            </div>
+            <div class="tips-list">
+              <!-- AI-generated tips will be loaded here -->
+            </div>
+            <div class="daily-challenge">
+              <p class="challenge-label">Today's Challenge:</p>
+              <p class="challenge-text">Loading AI-generated challenge...</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- REUSABLE FOOTER COMPONENT -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-section">
+          <p class="footer-title">Smart Study Generator</p>
+          <p>Helping students study smart and stay balanced for success.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#help" class="footer-link" id="helpLink">Help</a>
+          <a href="#faq" class="footer-link" id="faqLink">FAQ</a>
+          <a href="#support" class="footer-link" id="supportLink">Support</a>
+        </div>
+
+        <p class="footer-credit">Made with 💙 for future achievers.</p>
+      </div>
+    </footer>
+
+    <!-- Help Modal -->
+    <div class="modal" id="helpModal">
+      <div class="modal-content">
+        <span class="close-modal" data-modal="helpModal">&times;</span>
+        <h2>Help Center</h2>
+        <div class="modal-body">
+          <h3>Getting Started</h3>
+          <p>1. Ask the AI Advisor any study-related question</p>
+          <p>2. Get personalized study recommendations</p>
+          <p>3. View your AI-generated insights and tips</p>
+          <p>4. Track your progress and stay motivated</p>
+
+          <h3>Features Guide</h3>
+          <p>
+            <strong>AI Chat:</strong> Ask questions about study strategies, time
+            management, and more
+          </p>
+          <p>
+            <strong>Personalized Insights:</strong> Get AI-powered analysis of
+            your study patterns
+          </p>
+          <p>
+            <strong>Daily Motivation:</strong> Receive motivational quotes and
+            challenges
+          </p>
+          <p>
+            <strong>Study Tips:</strong> Access AI-generated tips tailored to
+            your needs
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Modal -->
+    <div class="modal" id="faqModal">
+      <div class="modal-content">
+        <span class="close-modal" data-modal="faqModal">&times;</span>
+        <h2>Frequently Asked Questions</h2>
+        <div class="modal-body">
+          <div class="faq-item">
+            <h3>Q: How does the AI Advisor work?</h3>
+            <p>
+              A: The AI Advisor uses advanced language models to provide
+              personalized study advice based on your profile and study
+              patterns.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q: What kind of questions can I ask?</h3>
+            <p>
+              A: You can ask about study techniques, time management, subject
+              strategies, motivation, exam preparation, and more.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q: Is my conversation private?</h3>
+            <p>
+              A: Yes, all conversations are stored locally in your browser for
+              privacy.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q: Can the AI help with specific subjects?</h3>
+            <p>
+              A: Yes! The AI can provide subject-specific study strategies and
+              tips.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q: How often are insights updated?</h3>
+            <p>
+              A: Insights are generated in real-time based on your latest study
+              data and patterns.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Support Modal -->
+    <div class="modal" id="supportModal">
+      <div class="modal-content">
+        <span class="close-modal" data-modal="supportModal">&times;</span>
+        <h2>Support</h2>
+        <div class="modal-body">
+          <h3>Need Help?</h3>
+          <p>
+            We're here to help you succeed! Choose how you'd like to reach us:
+          </p>
+
+          <div class="support-options">
+            <div class="support-card">
+              <i class="fa fa-envelope"></i>
+              <h4>Email Support</h4>
+              <p>support@smartstudygenerator.com</p>
+              <p class="support-note">Response within 24 hours</p>
+            </div>
+
+            <div class="support-card">
+              <i class="fa fa-comments"></i>
+              <h4>Live Chat</h4>
+              <p>Available Mon-Fri, 9AM-5PM</p>
+              <button class="support-btn">Start Chat</button>
+            </div>
+
+            <div class="support-card">
+              <i class="fa fa-book"></i>
+              <h4>Documentation</h4>
+              <p>Browse our comprehensive guides</p>
+              <button class="support-btn">View Docs</button>
+            </div>
+          </div>
+
+          <h3>Report an Issue</h3>
+          <form class="support-form">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea
+              placeholder="Describe your issue..."
+              rows="4"
+              required
+            ></textarea>
+            <button type="submit" class="submit-btn">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="footer-script.js"></script>
+    <script src="navigation.js"></script>
+    <script src="logout.js"></script>
+    <script src="ai-advisor.js"></script>
+  </body>
+</html>
