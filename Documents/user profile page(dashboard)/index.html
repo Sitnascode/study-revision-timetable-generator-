@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Study Generator</title>
+
+    <!-- FONT AWESOME FOR ICONS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">Smart Study Generator</div>
+
+      <nav>
+        <a href="#">Home</a>
+        <a href="#feature">Features</a>
+        <a href="#">About</a>
+      </nav>
+
+      <div class="toggle-btn" id="themeToggle">
+        <i class="fa-solid fa-moon"></i>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>
+          Welcome to <br /><span>Smart Study Revision</span><br />Timetable
+          Generator
+        </h1>
+        <p>
+          Your intelligent AI-powered revision planner. Study smart, stay
+          healthy, and succeed confidently.
+        </p>
+        <a class="cta-btn" href="profile-setup.html">Get Started</a>
+      </div>
+      <div class="hero-image">
+        <img src="image.jpg.jpg" alt="Study Illustration" />
+      </div>
+    </section>
+
+    <section class="features-tagline">
+      <h2>Features of this app</h2>
+      <p>
+        Designed for smart students who want success, balance, confidence, and
+        full revision coverage.
+      </p>
+    </section>
+
+    <section id="feature" class="features">
+      <h2 class="center-title">Smart Revision Features</h2>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Personalized Study Blocks</h3>
+          <p>Topics scheduled based on difficulty.</p>
+        </div>
+        <div class="card">
+          <h3>100% Topic Coverage</h3>
+          <p>No topic is left behind.</p>
+        </div>
+        <div class="card">
+          <h3>Smart Repetition</h3>
+          <p>Weak topics repeat until perfected.</p>
+        </div>
+        <div class="card">
+          <h3>Burnout Prevention</h3>
+          <p>Breaks, sleep, hydration, rest.</p>
+        </div>
+        <div class="card">
+          <h3>Energy Slot Mapping</h3>
+          <p>Hard topics placed in peak focus hours.</p>
+        </div>
+        <div class="card">
+          <h3>Export Easily</h3>
+          <p>Download timetable in PDF/Excel/Text.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-section">
+          <p class="footer-title">Smart Study Generator</p>
+          <p>Helping students study smart and stay balanced for success.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#help" class="footer-link" id="helpLink">Help</a>
+          <a href="#faq" class="footer-link" id="faqLink">FAQ</a>
+          <a href="#support" class="footer-link" id="supportLink">Support</a>
+        </div>
+
+        <p class="footer-credit">Made with 💙 for future achievers.</p>
+      </div>
+    </footer>
+
+    <!-- Help Modal -->
+    <div class="modal" id="helpModal">
+      <div class="modal-content">
+        <span class="close-modal" data-modal="helpModal">&times;</span>
+        <h2>Help Center</h2>
+        <div class="modal-body">
+          <h3>Getting Started</h3>
+          <p>1. Click "Get Started" to begin your profile setup</p>
+          <p>2. Enter your study preferences and goals</p>
+          <p>3. Add your subjects and topics</p>
+          <p>4. Generate your personalized study timetable</p>
+
+          <h3>Features Guide</h3>
+          <p>
+            <strong>Profile Setup:</strong> Configure your study preferences,
+            sleep schedule, and learning style
+          </p>
+          <p>
+            <strong>Subject Management:</strong> Add subjects, topics, and set
+            difficulty levels
+          </p>
+          <p>
+            <strong>Timetable Generation:</strong> AI creates an optimized study
+            schedule
+          </p>
+          <p>
+            <strong>Progress Tracking:</strong> Monitor your study progress and
+            achievements
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Modal -->
+    <div class="modal" id="faqModal">
+      <div class="modal-content">
+        <span class="close-modal" data-modal="faqModal">&times;</span>
+        <h2>Frequently Asked Questions</h2>
+        <div class="modal-body">
+          <div class="faq-item">
+            <h3>Q: How does the AI generate my timetable?</h3>
+            <p>
+              A: Our AI analyzes your study preferences, subject difficulty,
+              available time, and energy levels to create an optimized schedule
+              that maximizes learning while preventing burnout.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q: Can I modify the generated timetable?</h3>
+            <p>
+              A: Yes! You can adjust study blocks, change topics, and regenerate
+              the timetable anytime.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q: Is my data saved?</h3>
+            <p>
+              A: Yes, all your data is saved locally in your browser for privacy
+              and quick access.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q: Can I export my timetable?</h3>
+            <p>
+              A: Yes, you can export your timetable in PDF, Excel, or text
+              format.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Q: How does the app prevent burnout?</h3>
+            <p>
+              A: The app schedules regular breaks, respects your sleep hours,
+              and distributes study load evenly to prevent exhaustion.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Support Modal -->
+    <div class="modal" id="supportModal">
+      <div class="modal-content">
+        <span class="close-modal" data-modal="supportModal">&times;</span>
+        <h2>Support</h2>
+        <div class="modal-body">
+          <h3>Need Help?</h3>
+          <p>
+            We're here to help you succeed! Choose how you'd like to reach us:
+          </p>
+
+          <div class="support-options">
+            <div class="support-card">
+              <i class="fa fa-envelope"></i>
+              <h4>Email Support</h4>
+              <p>support@smartstudygenerator.com</p>
+              <p class="support-note">Response within 24 hours</p>
+            </div>
+
+            <div class="support-card">
+              <i class="fa fa-comments"></i>
+              <h4>Live Chat</h4>
+              <p>Available Mon-Fri, 9AM-5PM</p>
+              <button class="support-btn">Start Chat</button>
+            </div>
+
+            <div class="support-card">
+              <i class="fa fa-book"></i>
+              <h4>Documentation</h4>
+              <p>Browse our comprehensive guides</p>
+              <button class="support-btn">View Docs</button>
+            </div>
+          </div>
+
+          <h3>Report an Issue</h3>
+          <form class="support-form">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea
+              placeholder="Describe your issue..."
+              rows="4"
+              required
+            ></textarea>
+            <button type="submit" class="submit-btn">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

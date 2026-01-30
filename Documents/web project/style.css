@@ -1,0 +1,161 @@
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Consistent header and footer styling */
+header,
+footer {
+  background: #4caf50;
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+
+/* Container for the entire quiz */
+.quiz-container {
+  background: white;
+  padding: 2em;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* subtle shadow effect */
+}
+
+/* Question text styling */
+#question {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+/* Flex layout for answer buttons */
+#answers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+/* General button styles */
+button {
+  padding: 10px 15px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #444;
+  color: white;
+}
+
+/* Default state of answer buttons */
+.answer-btn {
+  background: #eee;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Slight scale effect on click */
+.answer-btn:active {
+  transform: scale(0.98);
+}
+
+/* Hover effect only when light mode is active */
+body:not(.dark) .answer-btn:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+/* Styles for correct and incorrect answers */
+.answer-btn.correct {
+  background: #4caf50;
+  color: white;
+}
+
+.answer-btn.wrong {
+  background: #f44336;
+  color: white;
+}
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 600px) {
+  .quiz-container {
+    padding: 1em;
+  }
+
+  #question {
+    font-size: 1em;
+  }
+}
+
+/* Timer text styling */
+#timer {
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+/* Dark mode adjustments */
+.dark {
+  background: #121212;
+  color: #f0f0f0;
+}
+
+.dark header,
+.dark footer {
+  background: #1f1f1f;
+  color: #ddd;
+}
+
+.dark .quiz-container {
+  background: #2c2c2c;
+}
+
+.dark .answer-btn {
+  background: #444;
+  color: #eee;
+}
+
+/* Highlight selected answer in dark mode */
+.dark .answer-btn.selected {
+  background: #666;
+}
+
+/* Floating dark mode toggle button */
+.dark-toggle {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background: #000;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Hidden by default, shown on answer selection */
+#next-btn {
+  display: none;
+  margin: 1em auto 0 auto;
+  display: block;
+}
+
+/* Centers the next button */
+.button-container {
+  display: flex;
+  justify-content: center;
+}

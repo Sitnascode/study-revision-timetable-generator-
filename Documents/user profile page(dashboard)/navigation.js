@@ -5,16 +5,28 @@
 (function () {
   "use strict";
 
-  // Page URLs - All files are now in root directory
+  // Page URLs
   const PAGES = {
-    home: "index.html",
+    home: "landing_profile_page_final/index.html",
     profile: "user-profile-dashboard.html",
     progress: "progress.html",
     aiAdvisor: "ai-advisor.html",
-    subject: "subjects.html",
-    generate: "generate.html",
-    timetable: "timetable.html",
+    subject: "/subjects.html",
+    generate: "/generate.html",
+    timetable: "/timetable.html",
   };
+
+  // Check if we're in the generate folder
+  const isInGenerateFolder = window.location.pathname.includes("/generate/");
+  if (isInGenerateFolder) {
+    PAGES.home = "../landing_profile_page_final/index.html";
+    PAGES.profile = "../user-profile-dashboard.html";
+    PAGES.progress = "../progress.html";
+    PAGES.aiAdvisor = "../ai-advisor.html";
+    PAGES.subject = "../subjects.html";
+    PAGES.generate = "../generate.html";
+    PAGES.timetable = "../timetable.html";
+  }
 
   /**
    * Navigate to a specific page
