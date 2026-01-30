@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timetable — StudyRevise</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="timetable.css" />
+  </head>
+
+  <body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <span class="logo-icon">📖</span>
+          <span class="logo-text">StudyRevise</span>
+        </div>
+      </div>
+
+      <div class="sidebar-menu">
+        <a href="subjects.html" class="menu-item">
+          <span class="menu-icon">📖</span>
+          <span class="menu-text">Subject</span>
+        </a>
+        <a href="generate.html" class="menu-item">
+          <span class="menu-icon">✨</span>
+          <span class="menu-text">Generate</span>
+        </a>
+        <a href="timetable.html" class="menu-item active">
+          <span class="menu-icon">📅</span>
+          <span class="menu-text">Timetable</span>
+        </a>
+        <a href="../progress.html" class="menu-item">
+          <span class="menu-icon">📊</span>
+          <span class="menu-text">Progress</span>
+        </a>
+        <a href="../ai-advisor.html" class="menu-item">
+          <span class="menu-icon">🤖</span>
+          <span class="menu-text">AI Advisor</span>
+        </a>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-profile-item">
+          <div class="user-avatar">👤</div>
+          <div class="user-info">
+            <div class="user-name">Alex Smith</div>
+            <div class="user-email">alex@email.com</div>
+          </div>
+        </div>
+        <a href="#" class="menu-item logout-item">
+          <span class="menu-icon"><i class="fa fa-sign-out"></i></span>
+          <span class="menu-text">Log Out</span>
+        </a>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <header>
+        <div>
+          <h1>Your Study Timetable</h1>
+          <div class="muted">
+            Manage your study sessions and export your timetable
+          </div>
+        </div>
+        <div class="controls">
+          <a href="../landing_profile_page_final/index.html" class="home-link">
+            <i class="fa fa-home"></i> Home
+          </a>
+          <button id="darkModeToggle" title="Toggle Dark Mode">🌙</button>
+        </div>
+      </header>
+
+      <main class="container">
+        <!-- Timetable Table -->
+        <section class="card table-card" aria-labelledby="list-sessions">
+          <h2 id="list-sessions">Your Sessions</h2>
+
+          <div class="table-wrap">
+            <table
+              id="timetableTable"
+              class="subjects-table"
+              aria-describedby="list-sessions"
+            >
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Subject</th>
+                  <th>Time Slot</th>
+                  <th>Duration</th>
+                  <th>Pomodoro</th>
+                  <th>Priority</th>
+                </tr>
+              </thead>
+
+              <tbody></tbody>
+            </table>
+
+            <div class="table-actions bottom-buttons">
+              <button class="btn ghost" id="exportPDF">Export PDF</button>
+              <button class="btn ghost" id="exportExcel">Export Excel</button>
+              <button class="btn ghost" id="printTable">Print</button>
+              <button class="btn primary" id="regenerateBtn">Regenerate</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Progress Tracking Section -->
+        <section class="card tracking-card">
+          <h2>📝 Track Your Progress</h2>
+          <div class="tracking-content">
+            <div class="tracking-info">
+              <p class="tracking-description">
+                Mark your daily study sessions as complete to track your
+                progress and maintain your streak!
+              </p>
+            </div>
+
+            <div class="tracking-actions">
+              <div class="tracking-form">
+                <label for="trackingSubject">Subject:</label>
+                <select id="trackingSubject">
+                  <option value="">Select a subject</option>
+                </select>
+
+                <label for="trackingDate">Date:</label>
+                <input type="date" id="trackingDate" />
+
+                <label for="trackingHours">Hours Studied:</label>
+                <input
+                  type="number"
+                  id="trackingHours"
+                  min="0.25"
+                  max="12"
+                  step="0.25"
+                  placeholder="e.g., 2.5"
+                />
+
+                <label for="trackingStatus">Status:</label>
+                <select id="trackingStatus">
+                  <option value="completed">✅ Completed</option>
+                  <option value="in-progress">⏳ In Progress</option>
+                  <option value="skipped">⏭️ Skipped</option>
+                </select>
+
+                <button id="markProgressBtn" class="btn">Mark Progress</button>
+              </div>
+            </div>
+
+            <div class="tracking-history">
+              <h4>Recent Activity</h4>
+              <div id="trackingHistoryList"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Edit Modal -->
+        <div id="editModal" class="modal" aria-hidden="true">
+          <div class="modal-backdrop" id="modalBackdrop"></div>
+
+          <div
+            class="modal-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
+          >
+            <h3 id="modalTitle">Edit Session</h3>
+
+            <div class="modal-body">
+              <label for="modalSessionName">Session Name</label>
+              <input id="modalSessionName" type="text" />
+
+              <label for="modalSessionDifficulty">Difficulty (1–5)</label>
+              <input
+                id="modalSessionDifficulty"
+                type="number"
+                min="1"
+                max="5"
+              />
+
+              <label for="modalSessionImportance">Importance (1–5)</label>
+              <input
+                id="modalSessionImportance"
+                type="number"
+                min="1"
+                max="5"
+              />
+            </div>
+
+            <div class="modal-actions">
+              <button class="btn ghost" id="modalCancel">Cancel</button>
+              <button class="btn primary" id="modalSave">Save</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="../navigation.js"></script>
+    <script src="../logout.js"></script>
+    <script src="timetable.js"></script>
+  </body>
+</html>
