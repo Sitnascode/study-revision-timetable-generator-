@@ -311,7 +311,7 @@ if (generateBtn) {
     // Generate timetable before navigating
     generateTimetableData(subjects, cfg);
 
-    window.location.href = "../timetable.html";
+    window.location.href = "timetable.html";
   });
 }
 
