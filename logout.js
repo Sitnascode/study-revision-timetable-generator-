@@ -9,7 +9,7 @@
   // Logout configuration
   const LOGOUT_CONFIG = {
     confirmMessage: "Are you sure you want to log out?",
-    redirectUrl: "landing_profile_page_final/index.html", // Landing page
+    redirectUrl: "index.html", // Landing page in root directory
     clearStorage: true,
     showNotification: true,
   };
@@ -162,7 +162,7 @@
    * Redirect to login if not logged in
    * @param {string} loginUrl - URL to redirect to if not logged in
    */
-  function requireLogin(loginUrl = "landing_profile_page_final/index.html") {
+  function requireLogin(loginUrl = "index.html") {
     if (!isLoggedIn()) {
       window.location.href = loginUrl;
     }
